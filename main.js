@@ -1,3 +1,11 @@
+function getTimeNow(){
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' };
+    const customDateTime = new Date().toLocaleString('pt-BR', options);
+    const customTimeSlice = customDateTime.slice(-8, -3);
+    
+    return(customTimeSlice);
+}
+
 let firstNumber, operator, lastNumber;
 
 function operate(operator, number1, number2){
