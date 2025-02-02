@@ -58,12 +58,15 @@ function divide(number1, number2){
 const display = document.querySelector("#display-number");
 const arm = document.querySelector(".arm");
 
+function clearAll(){
+    display.innerHTML = "0";
+    arm.innerHTML = "";
+    firstNumber = undefined;
+    lastNumber = undefined;
+    operator = undefined;
+}
+
 function displayExpression(digit){
-    if(digit === "clear"){
-        display.innerHTML = "0";
-        arm.innerHTML = "";
-        return;
-    }
     if(display.textContent.length >= 8) return;
     if(display.textContent === "0"){
         display.innerHTML = digit;
@@ -73,8 +76,18 @@ function displayExpression(digit){
 }
 
 function armFirst(oper) {
+    if(firstNumber !== undefined){
+        lastNumber = +display.textContent;
+        let result = operate(operator, firstNumber, lastNumber);
+        firstNumber = result;
+        operator = oper;
+        arm.innerHTML = `${firstNumber} ${operator} `;
+        display.innerHTML = "0";
+
+        return;
+    } 
+
     firstNumber = +display.textContent;
-    
     operator = oper;
     
     arm.innerHTML = `${firstNumber} ${operator} `;
@@ -83,13 +96,8 @@ function armFirst(oper) {
 
 function getResult() {
     if(arm.textContent.includes("=")) return;
-
     lastNumber = +display.textContent;
     let result = operate(operator, firstNumber, lastNumber);
-
     arm.innerHTML += `${lastNumber} =`;
-
     display.innerHTML = result;
 }
-
-
