@@ -14,44 +14,46 @@
 <body>
     <div class="box">
         <div class="top">
-            <div id="time">20:50</div>
+            <div id="time"></div>
             <div><img src="image.svg" alt="imagem simulando widgets do celular"></div>
         </div>
-        <div class="display">5*10</div>
+        
+        <div class="display"> 
+            <div class="arm"></div>
+            <p id="display-number">0</p>
+        </div>
         <div class="teclado">
             <div class="row">
-                <div class="white ac">AC</div>
+                <div class="white ac" onclick="displayExpression('clear')">AC</div>
                 <div class="white signal">+/-</div>
                 <div class="white percent">%</div>
-                <div class="operators divide">/</div>
+                <div class="operators divide" onclick="armFirst('/')">/</div>
             </div>
             <div class="row">
-                <div class="number" id="n7">7</div>
-                <div class="number" id="n8">8</div>
-                <div class="number" id="n9">9</div>
-                <div class="operators multiply">x</div>
+                <div class="number" id="n7" onclick="displayExpression('7')">7</div>
+                <div class="number" id="n8" onclick="displayExpression('8')">8</div>
+                <div class="number" id="n9" onclick="displayExpression('9')">9</div>
+                <div class="operators multiply" onclick="armFirst('*')">x</div>
             </div>
             <div class="row">
-                <div class="number" id="n4">4</div>
-                <div class="number" id="n5">5</div>
-                <div class="number" id="n6">6</div>
-                <div class="operators subtract">-</div>
+                <div class="number" id="n4" onclick="displayExpression('4')">4</div>
+                <div class="number" id="n5" onclick="displayExpression('5')">5</div>
+                <div class="number" id="n6" onclick="displayExpression('6')">6</div>
+                <div class="operators subtract" onclick="armFirst('-')">-</div>
             </div>
             <div class="row">
-                <div class="number" id="n1">1</div>
-                <div class="number" id="n2">2</div>
-                <div class="number" id="n3">3</div>
-                <div class="operators add">+</div>
+                <div class="number" id="n1" onclick="displayExpression('1')">1</div>
+                <div class="number" id="n2" onclick="displayExpression('2')">2</div>
+                <div class="number" id="n3" onclick="displayExpression('3')">3</div>
+                <div class="operators add" onclick="armFirst('+')">+</div>
             </div>
             <div class="row">
-                <div colspan="2" class="number" id="n0">0</div>
+                <div colspan="2" class="number" id="n0" onclick="displayExpression('0')">0</div>
                 <div class="number" id="colon">,</div>
-                <div class="operators equal">=</div>
+                <div class="operators equal" onclick="getResult()">=</div>
             </div>
         </div>
     </div>
-
-
 
     <script src="main.js"></script>
 </body>

@@ -64,7 +64,15 @@ body {
 .display {
     font-size: 46px;
     text-align: end;
-    margin: 120px 15px 10px;
+    margin: 120px 10px 15px;
+    position: relative;
+}
+
+.arm {
+    margin: 0;
+    font-size: 18px;
+    position: absolute;
+    top: -30px;
 }
 
 .top {
